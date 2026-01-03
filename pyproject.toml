@@ -1,0 +1,14 @@
+[project]
+name = "comfyui-drag-ghost"
+description = "A premium visual enhancement for ComfyUI that adds a smooth 'ghost' effect when dragging nodes and groups."
+version = "1.0.0"
+license = { file = "LICENSE" }
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/GalactusX31/ComfyUI-drag-ghost"
+
+[tool.comfy]
+PublisherId = "galactusx31"
+DisplayName = "ComfyUI Drag Ghost"
+Icon = "" # Optional: URL to an icon (SVG, PNG, JPG, GIF)
