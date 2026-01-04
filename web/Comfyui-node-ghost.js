@@ -21,73 +21,6 @@ app.registerExtension({
         let ghostOffset = { x: 0, y: 0 };
 
         app.ui.settings.addSetting({
-            id: "Comfy.NodeGhost.Enabled",
-            name: "Enable Ghost Dragging 👻",
-            type: "boolean",
-            defaultValue: true,
-        });
-
-        app.ui.settings.addSetting({
-            id: "Comfy.NodeGhost.BorderStyle",
-            name: "Ghost Border Style",
-            type: "combo",
-            defaultValue: "dashed",
-            options: ["solid", "dashed", "dotted", "double", "none"],
-        });
-
-        app.ui.settings.addSetting({
-            id: "Comfy.NodeGhost.RespectPinned",
-            name: "Respect Pinned Nodes 📌",
-            type: "boolean",
-            defaultValue: true,
-        });
-
-        app.ui.settings.addSetting({
-            id: "Comfy.NodeGhost.BorderColor",
-            name: "Ghost Border Color",
-            type: "combo",
-            defaultValue: "#999999",
-            options: [
-                { value: "#999999", text: "ComfyUI Gray" },
-                { value: "#ffffff", text: "White" },
-                { value: "#00eeff", text: "Cyan" },
-                { value: "#ff6e6e", text: "Red" },
-                { value: "#8bc34a", text: "Green" },
-                { value: "#ffeb3b", text: "Yellow" },
-                { value: "#ff9800", text: "Orange" },
-                { value: "#9c27b0", text: "Purple" },
-            ],
-            onChange: (value) => {
-                if (value === "#999999") {
-                    customColorValue = "#999999";
-                }
-            }
-        });
-
-        const styleId = "cncs-ghost-styles";
-        if (!document.getElementById(styleId)) {
-            const s = document.createElement("style");
-            s.id = styleId;
-            s.textContent = `
-                .cncs-ghost-phantom {
-                    position: fixed !important;
-                    border-radius: 0px !important;
-                    pointer-events: none !important;
-                    z-index: 9999 !important;
-                    box-sizing: border-box !important;
-                    display: none;
-                }
-                .cncs-ghost-node {
-                    position: absolute !important;
-                    border-radius: 0px !important;
-                    pointer-events: none !important;
-                    box-sizing: border-box !important;
-                }
-            `;
-            document.head.appendChild(s);
-        }
-
-        app.ui.settings.addSetting({
             id: "Comfy.NodeGhost.CustomColorPicker",
             name: "📝 Pick Custom Color",
             type: (name, setter, value) => {
@@ -120,6 +53,73 @@ app.registerExtension({
                 return button;
             }
         });
+
+        app.ui.settings.addSetting({
+            id: "Comfy.NodeGhost.BorderColor",
+            name: "Ghost Border Color",
+            type: "combo",
+            defaultValue: "#999999",
+            options: [
+                { value: "#999999", text: "ComfyUI Gray" },
+                { value: "#ffffff", text: "White" },
+                { value: "#00eeff", text: "Cyan" },
+                { value: "#ff6e6e", text: "Red" },
+                { value: "#8bc34a", text: "Green" },
+                { value: "#ffeb3b", text: "Yellow" },
+                { value: "#ff9800", text: "Orange" },
+                { value: "#9c27b0", text: "Purple" },
+            ],
+            onChange: (value) => {
+                if (value === "#999999") {
+                    customColorValue = "#999999";
+                }
+            }
+        });
+
+        app.ui.settings.addSetting({
+            id: "Comfy.NodeGhost.BorderStyle",
+            name: "Ghost Border Style",
+            type: "combo",
+            defaultValue: "solid",
+            options: ["solid", "dashed", "dotted", "double", "none"],
+        });
+
+        app.ui.settings.addSetting({
+            id: "Comfy.NodeGhost.RespectPinned",
+            name: "Respect Pinned Nodes 📌",
+            type: "boolean",
+            defaultValue: false,
+        });
+
+        app.ui.settings.addSetting({
+            id: "Comfy.NodeGhost.Enabled",
+            name: "Enable Ghost Dragging 👻",
+            type: "boolean",
+            defaultValue: true,
+        });
+
+        const styleId = "cncs-ghost-styles";
+        if (!document.getElementById(styleId)) {
+            const s = document.createElement("style");
+            s.id = styleId;
+            s.textContent = `
+                .cncs-ghost-phantom {
+                    position: fixed !important;
+                    border-radius: 0px !important;
+                    pointer-events: none !important;
+                    z-index: 9999 !important;
+                    box-sizing: border-box !important;
+                    display: none;
+                }
+                .cncs-ghost-node {
+                    position: absolute !important;
+                    border-radius: 0px !important;
+                    pointer-events: none !important;
+                    box-sizing: border-box !important;
+                }
+            `;
+            document.head.appendChild(s);
+        }
 
         const isEnabled = () => app.ui.settings.getSettingValue("Comfy.NodeGhost.Enabled");
 

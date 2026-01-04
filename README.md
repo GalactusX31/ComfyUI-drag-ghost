@@ -9,6 +9,16 @@ A premium visual enhancement for **ComfyUI** that adds a smooth "ghost" effect w
 *   **Ghost Previews:** Shows a semi-transparent "ghost" of your selection (nodes and groups) while dragging.
 *   **Grid Snapping:** Real-time visual snapping to the grid for precise alignment.
 
+## 📦 Configuration
+
+![Configuration Settings](files/config.png)
+
+## 🎬 Example
+
+<video src="files/dragghost.mp4" controls="controls" style="max-width: 100%;">
+  Your browser does not support the video tag.
+</video>
+
 ### 📦 **Advanced Group Support**
 *   **Synchronized Movement:** Moving a generic group automatically moves all nodes inside it.
 *   **Mixed Selection:** Seamlessly drag a combination of individual nodes and groups.
@@ -53,4 +63,4 @@ You can configure the following options in the ComfyUI Settings menu (`Comfy.Nod
 
 ---
 
-*Enhance your ComfyUI workflow with professional visual feedback.* 
+*Enhance your ComfyUI workflow with visual feedback.* 
