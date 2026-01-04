@@ -15,9 +15,7 @@ A premium visual enhancement for **ComfyUI** that adds a smooth "ghost" effect w
 
 ## 🎬 Example
 
-<video src="files/dragghost.mp4" controls="controls" style="max-width: 100%;">
-  Your browser does not support the video tag.
-</video>
+![ComfyUI Ghost Dragging Demo](files/dragghost.gif)
 
 ### 📦 **Advanced Group Support**
 *   **Synchronized Movement:** Moving a generic group automatically moves all nodes inside it.
